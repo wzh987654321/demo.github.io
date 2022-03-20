@@ -8,12 +8,20 @@
   </head>
   <body>
     <a
-      id="open"
+      id="btn"
       href="heybox://{'protocol_type':'alert','alert_type':'state','state':'failed','desc':'交易成功，请前往steam进行发货'}"
-      >啊啊啊啊啊啊啊啊啊啊啊</a
-    >
+      ><input id="clickBtn" type="button"
+    /></a>
+
+    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
     <script>
-      document.getElementById('open').click()
+      /*主动触发跳转*/
+      $('#clickBtn').trigger('click')
+
+      /*定时主动触发跳转*/
+      setTimeout(function () {
+        $('#clickBtn').trigger('click')
+      }, 2000)
     </script>
   </body>
 </html>
