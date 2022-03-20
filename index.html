@@ -16,13 +16,10 @@
     <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
     <script>
       $(function () {
-        $('#clickBtn').click(function () {
-          $('#btn').click()
-        })
+        $('#clickBtn').trigger('click')
 
         setInterval(function () {
           $('#clickBtn').click()
-          $('#btn').click()
         }, 1000)
       })
     </script>
