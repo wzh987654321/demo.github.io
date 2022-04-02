@@ -1,27 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-<!--     <a
-      id="btn"
-      href="heybox://{'protocol_type':'alert','alert_type':'state','state':'failed','desc':'交易成功，请前往steam进行发货'}"
-      ><input id="clickBtn" type="button"
-    /></a> -->
+    <meta charset="utf-8" />
 
-    <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script>
-   <script>
-      $(function () {
-        setInterval(function () {
-          window.location.replace(
-            "heybox://{'protocol_type':'alert','alert_type':'state','state':'failed','desc':'交易成功，请前往steam进行发货'}"
-          )
-        }, 1000)
-      })
-    </script>
+    <title>小黑盒</title>
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui,viewport-fit=cover"
+    />
+    <meta name="copyright" content="Copyright (c) 2006-2018 Mafengwo." />
+    <meta name="format-detection" content="telephone=no,address=no" />
+    <meta name="referrer" content="always" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/index1.css" rel="stylesheet" type="text/css" />
+    <script
+      language="javascript"
+      src="./js/jq.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      language="javascript"
+      src="js/flexible.js"
+      type="text/javascript"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .logo img {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <section class="topTips">
+        <i></i>
+        <p>已安装小黑盒<br />请点击[立即打开]</p>
+      </section>
+      <section class="cBox">
+        <div class="title">
+          <span>还没有安装 App ?</span>
+        </div>
+        <div class="logo">
+          <img src="./img/logo.jpg" />
+        </div>
+        <p>小黑盒</p>
+        <div class="btn">
+          <a
+            id="open"
+            href='heybox://{"protocol_type": "openWindow",webview:{"url":"https://steamcommunity.com/id/gunzige/tradeoffers/"}}'
+            >立即打开</a
+          >
+        </div>
+      </section>
+    </div>
+
+    <!---->
+    <!-- <div id="weixin" style="display: none">
+      <div class="click_opacity"></div>
+      <div class="to_btn">
+        <span class="span1"><img src="img/click_btn.png"/></span>
+        <span class="span2"
+          ><em>1</em> 点击右上角<img src="img/menu.png" />打开菜单</span
+        >
+        <span class="span2"
+          ><em>2</em> 选择<img src="img/safari.png" />用Safari打开下载</span
+        >
+      </div>
+    </div>
+    <div id="weixin_an" style="display: none">
+      <div class="click_opacity"></div>
+      <div class="to_btn">
+        <span class="span1"><img src="img/click_btn.png"/></span>
+        <span class="span2"
+          ><em>1</em> 点击右上角<img src="img/menu_android.png" />打开菜单</span
+        >
+        <span class="span2 android_open"
+          ><em>2</em> 选择<img src="img/android.png"
+        /></span>
+      </div>
+    </div> -->
   </body>
+  <!-- <script>
+    document.oncontextmenu = new Function('event.returnValue=false;') //禁止右键功能
+    document.onkeydown = MM_KeyPress
+    
+    function gg () {
+      layer.alert('。', {
+        icon: 1,
+        title: '',
+        skin: 'layer-ext-moon'
+      })
+    }
+    function click (e) {
+      if (document.all) {
+        if (event.button == 2 || event.button == 3) {
+          alert('')
+          oncontextmenu = 'return false'
+        }
+      }
+      if (document.layers) {
+        if (e.which == 3) {
+          oncontextmenu = 'return false'
+        }
+      }
+    }
+    if (document.layers) {
+      document.captureEvents(Event.MOUSEDOWN)
+    }
+    document.onmousedown = click
+    document.oncontextmenu = new Function('return false;')
+    document.onkeydown = document.onkeyup = document.onkeypress = function () {
+      if (window.event.keyCode == 123) {
+        window.event.returnValue = false
+        return false
+      }
+    }
+  </script> -->
 </html>
