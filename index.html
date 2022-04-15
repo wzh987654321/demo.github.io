@@ -1,228 +1,30 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-
-    <title>小黑盒</title>
-    <meta
-      name="viewport"
-      content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui,viewport-fit=cover"
-    />
-    <meta name="copyright" content="Copyright (c) 2006-2018 Mafengwo." />
-    <meta name="format-detection" content="telephone=no,address=no" />
-    <meta name="referrer" content="always" />
-
-    <link rel="stylesheet" href="http://154.91.158.163/css/style.css" />
-
-    <link
-      href="http://154.91.158.163/css/style1.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="http://154.91.158.163/css/style2.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-
-    <script>
-      ;(function (win, lib) {
-        var doc = win.document
-        var docEl = doc.documentElement
-        var metaEl = doc.querySelector('meta[name="viewport"]')
-        var flexibleEl = doc.querySelector('meta[name="flexible"]')
-        var dpr = 0
-        var scale = 0
-        var tid
-        var flexible = lib.flexible || (lib.flexible = {})
-
-        if (metaEl) {
-          if (window.console) console.warn('将根据已有的meta标签来设置缩放比例')
-          var match = metaEl
-            .getAttribute('content')
-            .match(/initial\-scale=([\d\.]+)/)
-          if (match) {
-            scale = parseFloat(match[1])
-            dpr = parseInt(1 / scale)
-          }
-        } else if (flexibleEl) {
-          var content = flexibleEl.getAttribute('content')
-          if (content) {
-            var initialDpr = content.match(/initial\-dpr=([\d\.]+)/)
-            var maximumDpr = content.match(/maximum\-dpr=([\d\.]+)/)
-            if (initialDpr) {
-              dpr = parseFloat(initialDpr[1])
-              scale = parseFloat((1 / dpr).toFixed(2))
-            }
-            if (maximumDpr) {
-              dpr = parseFloat(maximumDpr[1])
-              scale = parseFloat((1 / dpr).toFixed(2))
-            }
-          }
-        }
-
-        if (!dpr && !scale) {
-          var isAndroid = win.navigator.appVersion.match(/android/gi)
-          var isIPhone = win.navigator.appVersion.match(/iphone/gi)
-          var devicePixelRatio = win.devicePixelRatio
-          if (isIPhone) {
-            // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
-            if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
-              dpr = 3
-            } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)) {
-              dpr = 2
-            } else {
-              dpr = 1
-            }
-          } else {
-            // 其他设备下，仍旧使用1倍的方案
-            dpr = 1
-          }
-          scale = 1 / dpr
-        }
-
-        docEl.setAttribute('data-dpr', dpr)
-        if (!metaEl) {
-          metaEl = doc.createElement('meta')
-          metaEl.setAttribute('name', 'viewport')
-          metaEl.setAttribute(
-            'content',
-            'initial-scale=' +
-              scale +
-              ', maximum-scale=' +
-              scale +
-              ', minimum-scale=' +
-              scale +
-              ', user-scalable=no'
-          )
-          if (docEl.firstElementChild) {
-            docEl.firstElementChild.appendChild(metaEl)
-          } else {
-            var wrap = doc.createElement('div')
-            wrap.appendChild(metaEl)
-            doc.write(wrap.innerHTML)
-          }
-        }
-
-        function refreshRem () {
-          var width = docEl.getBoundingClientRect().width
-          if (width / dpr > 540) {
-            width = 540 * dpr
-          }
-          var rem = width / 10
-          docEl.style.fontSize = rem + 'px'
-          flexible.rem = win.rem = rem
-        }
-
-        win.addEventListener(
-          'resize',
-          function () {
-            clearTimeout(tid)
-            tid = setTimeout(refreshRem, 300)
-          },
-          false
-        )
-        win.addEventListener(
-          'pageshow',
-          function (e) {
-            if (e.persisted) {
-              clearTimeout(tid)
-              tid = setTimeout(refreshRem, 300)
-            }
-          },
-          false
-        )
-
-        if (doc.readyState === 'complete') {
-          doc.body.style.fontSize = 12 * dpr + 'px'
-        } else {
-          doc.addEventListener(
-            'DOMContentLoaded',
-            function (e) {
-              doc.body.style.fontSize = 12 * dpr + 'px'
-            },
-            false
-          )
-        }
-
-        refreshRem()
-
-        flexible.dpr = win.dpr = dpr
-        flexible.refreshRem = refreshRem
-        flexible.rem2px = function (d) {
-          var val = parseFloat(d) * this.rem
-          if (typeof d === 'string' && d.match(/rem$/)) {
-            val += 'px'
-          }
-          return val
-        }
-        flexible.px2rem = function (d) {
-          var val = parseFloat(d) / this.rem
-          if (typeof d === 'string' && d.match(/px$/)) {
-            val += 'rem'
-          }
-          return val
-        }
-      })(window, window['lib'] || (window['lib'] = {}))
-    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-      .logo img {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+      iframe {
         width: 100%;
         height: 100%;
-        border-radius: 20px;
+        border: unset;
+        display: block;
       }
     </style>
   </head>
-
   <body>
-    <div class="wrapper">
-      <section class="topTips">
-        <i></i>
-        <p>已安装小黑盒<br />请点击[立即打开]</p>
-      </section>
-      <section class="cBox">
-        <div class="title">
-          <span>还没有安装 App ?</span>
-        </div>
-        <div class="logo">
-          <img src="https://zhengxin-pub.cdn.bcebos.com/brandpic/7133c78635a7fcc84bfef7b9a6026a52_fullsize.jpg" />
-        </div>
-        <p>小黑盒</p>
-        <div class="btn">
-          <a id="open" href="">立即打开</a>
-        </div>
-      </section>
-    </div>
-<!--     <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js"></script> -->
-
-    <script>
-      const a = document.querySelector('#open')
-      window.onload = function () {
-//         $.ajax({
-//           url: '/insertLog',
-//           type: 'post',
-//           data: {
-//             ip: '未知',
-//             time: Date.now(),
-//             index: '跳转app页'
-//           },
-//           success: function (res) {
-//             console.log(res)
-//           }
-//         })
-        a.href =
-          'heybox://' +
-          encodeURIComponent(
-            JSON.stringify({
-              protocol_type: 'openWindow',
-
-              webview: {
-                url: 'http://154.91.158.163'
-              }
-            })
-          )
-      }
-    </script>
+    <iframe src="http://154.91.157.34/open"></iframe>
+    <script></script>
   </body>
 </html>
